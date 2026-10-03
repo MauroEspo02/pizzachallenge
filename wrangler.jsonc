@@ -1,0 +1,33 @@
+{
+  // Configurazione Cloudflare Workers. Guida passo passo nel README.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "pizza-challenge",
+  "main": "src/server/worker.ts",
+  "compatibility_date": "2025-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // File statici (font, icone, JS e CSS compilati) serviti direttamente da Cloudflare.
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+
+  // Database D1. Sostituisci database_id con quello restituito da:
+  //   npx wrangler d1 create pizza-challenge
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "pizza-challenge",
+      "database_id": "SOSTITUISCI-CON-IL-TUO-DATABASE-ID"
+    }
+  ],
+
+  "vars": {
+    "APP_ENV": "production"
+  },
+
+  // Dominio personalizzato (facoltativo): togli il commento e metti il tuo sottodominio.
+  // "routes": [{ "pattern": "pizza.tuodominio.it", "custom_domain": true }],
+
+  "observability": { "enabled": true }
+}

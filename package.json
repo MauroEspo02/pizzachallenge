@@ -1,0 +1,36 @@
+{
+  "name": "pizza-challenge",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Pizza Challenge: gara di pizza napoletana tra amici. Voto da smartphone, risultati segreti fino al reveal.",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "node scripts/build.mjs",
+    "deploy": "npm run build && wrangler deploy",
+    "build:node": "node scripts/build.mjs --server",
+    "start": "node --disable-warning=ExperimentalWarning dist/server.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "node --disable-warning=ExperimentalWarning --import tsx --test \"tests/unit/*.test.ts\" \"tests/db/*.test.ts\"",
+    "test:e2e": "node scripts/build.mjs && node --disable-warning=ExperimentalWarning --import tsx --test --test-concurrency=1 \"tests/e2e/*.test.ts\"",
+    "icons": "node --import tsx scripts/make-icons.ts"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "esbuild": "^0.28.2",
+    "playwright": "^1.56.0",
+    "tsx": "^4.20.0",
+    "typescript": "^6.0.3",
+    "wrangler": "^4.40.0"
+  }
+}
