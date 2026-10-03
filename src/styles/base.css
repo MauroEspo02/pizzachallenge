@@ -1,0 +1,166 @@
+@font-face {
+  font-family: 'Sofia Sans';
+  src: url('/fonts/sofia-sans.woff2') format('woff2');
+  font-weight: 1 1000;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sofia Sans';
+  src: url('/fonts/sofia-sans-italic.woff2') format('woff2');
+  font-weight: 1 1000;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sofia Sans Extra Condensed';
+  src: url('/fonts/sofia-sans-extra-condensed.woff2') format('woff2');
+  font-weight: 1 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  background: var(--farina);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: var(--font-ui);
+  font-size: 17px;
+  line-height: 1.45;
+  font-weight: 450;
+  color: var(--forno);
+  background-color: var(--farina);
+  background-image: var(--grain);
+  font-feature-settings: 'kern', 'tnum' 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+html.has-dialog body,
+html.has-overlay body {
+  overflow: hidden;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+p,
+ol,
+ul,
+dl,
+dd,
+figure,
+fieldset {
+  margin: 0;
+}
+
+ol,
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+fieldset {
+  border: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--pomodoro) 70%, transparent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+code {
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.85em;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.island {
+  display: contents;
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-weight: 850;
+  font-size: 44px;
+  line-height: 0.95;
+  letter-spacing: -0.005em;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 1;
+  margin: 0 0 14px;
+}
+
+.eyebrow {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--pomodoro);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,228 @@
+/* ——— Accesso ——— */
+.login {
+  position: relative;
+  min-height: 100dvh;
+  overflow: hidden;
+  padding: calc(var(--safe-top) + 34px) var(--pad) calc(var(--safe-bottom) + 28px);
+  display: flex;
+  flex-direction: column;
+  max-width: 520px;
+  margin: 0 auto;
+}
+.login > .tile-band {
+  position: absolute;
+  top: var(--safe-top);
+  left: -50vw;
+  right: -50vw;
+}
+.login__pizza {
+  position: absolute;
+  top: calc(var(--safe-top) - 64px);
+  right: -96px;
+  width: 290px;
+  height: 290px;
+  filter: drop-shadow(0 22px 30px rgba(70, 30, 8, 0.28));
+  animation: login-spin 140s linear infinite;
+  pointer-events: none;
+}
+@keyframes login-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.login__head {
+  position: relative;
+  margin: 150px 0 26px;
+  transition: margin 0.3s var(--ease-out);
+}
+/* Durante l'inserimento del PIN l'intestazione si fa piccola: il tastierino sta tutto nello schermo. */
+.login:has(.pinpad) .login__head {
+  margin: 112px 0 6px;
+}
+.login:has(.pinpad) .brand--xl {
+  font-size: 44px;
+  flex-direction: row;
+  gap: 0.2em;
+}
+.login:has(.pinpad) .login__event,
+.login:has(.pinpad) .login__foot {
+  display: none;
+}
+.login__event {
+  margin-top: 14px;
+  font-size: 17px;
+  font-weight: 650;
+  color: var(--forno-2);
+  max-width: 22ch;
+}
+.login__foot {
+  margin-top: auto;
+  padding-top: 24px;
+  font-size: 14px;
+  color: var(--forno-3);
+  max-width: 40ch;
+}
+.login-empty {
+  padding: 18px;
+  border-radius: var(--r-m);
+  background: var(--carta);
+  border: 1px dashed var(--line-strong);
+}
+
+.who__title {
+  font-family: var(--font-display);
+  font-weight: 850;
+  font-size: 34px;
+  line-height: 1;
+  margin-bottom: 14px;
+}
+.who__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.who__person {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 66px;
+  padding: 10px 12px;
+  border-radius: 18px;
+  border: 1.5px solid var(--line);
+  background: var(--carta);
+  text-align: left;
+  font-size: 19px;
+  font-weight: 750;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.12s, border-color 0.2s;
+}
+.who__person:active {
+  transform: scale(0.97);
+  border-color: var(--pomodoro);
+}
+.who__name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.login-name {
+  display: grid;
+  gap: 4px;
+}
+
+.pinpad {
+  display: grid;
+  justify-items: center;
+  animation: pad-in 0.32s var(--ease-out);
+}
+@keyframes pad-in {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+}
+.pinpad__back {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 0;
+  background: none;
+  font-weight: 700;
+  color: var(--forno-2);
+  padding: 6px 0;
+}
+.pinpad__hello {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 46px;
+  line-height: 1;
+  margin-top: 8px;
+}
+.pinpad__hint {
+  margin-top: 6px;
+  min-height: 1.45em;
+  color: var(--forno-2);
+  font-weight: 600;
+  text-align: center;
+}
+.pinpad__dots {
+  display: flex;
+  gap: 18px;
+  margin: 18px 0 22px;
+}
+.pinpad__dots.is-shaking {
+  animation: shake 0.42s;
+}
+@keyframes shake {
+  20%,
+  60% {
+    transform: translateX(-10px);
+  }
+  40%,
+  80% {
+    transform: translateX(10px);
+  }
+}
+.pinpad__dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--legno);
+  transition: background 0.15s, transform 0.15s var(--ease-pop);
+}
+.pinpad__dot.is-filled {
+  background: var(--pomodoro);
+  border-color: var(--pomodoro);
+  transform: scale(1.12);
+}
+.pinpad__dots.is-error .pinpad__dot {
+  border-color: #a3200f;
+}
+.pinpad__keys {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: min(100%, 320px);
+}
+.key {
+  display: grid;
+  place-items: center;
+  height: 68px;
+  border-radius: 22px;
+  border: 1.5px solid var(--line);
+  background: var(--carta);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 34px;
+  box-shadow: 0 2px 0 rgba(123, 74, 42, 0.12);
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.key:active:not(:disabled) {
+  background: var(--pomodoro);
+  color: #fff8ef;
+  transform: scale(0.95);
+}
+.key:disabled {
+  opacity: 0.4;
+}
+.key--spacer {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.key--erase {
+  background: transparent;
+  box-shadow: none;
+}
+
+.login--admin .login__head {
+  margin-top: 48px;
+}
+.admin-login {
+  display: grid;
+}

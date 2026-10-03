@@ -1,0 +1,206 @@
+/* ——— Guscio partecipanti ——— */
+.app {
+  min-height: 100dvh;
+  padding-top: var(--safe-top);
+  padding-bottom: calc(var(--tabbar-h) + var(--safe-bottom) + 24px);
+}
+.app--no-nav {
+  padding-bottom: calc(var(--safe-bottom) + 24px);
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px var(--pad);
+  background: color-mix(in srgb, var(--farina) 92%, transparent);
+  backdrop-filter: saturate(1.4) blur(10px);
+  -webkit-backdrop-filter: saturate(1.4) blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.topbar__brand {
+  text-decoration: none;
+}
+
+.account {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px 4px 4px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--line);
+  background: var(--carta);
+  font-weight: 700;
+  font-size: 15px;
+  max-width: 55vw;
+}
+.account__name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.main {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 18px var(--pad) 0;
+}
+
+.tabbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 12px calc(6px + var(--safe-bottom));
+  background: color-mix(in srgb, var(--carta) 94%, transparent);
+  backdrop-filter: saturate(1.4) blur(14px);
+  -webkit-backdrop-filter: saturate(1.4) blur(14px);
+  border-top: 1px solid var(--line);
+}
+.tabbar__item {
+  position: relative;
+  flex: 1;
+  max-width: 160px;
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  padding: 7px 4px 5px;
+  border-radius: 14px;
+  text-decoration: none;
+  color: var(--forno-3);
+  font-size: 12.5px;
+  font-weight: 750;
+}
+.tabbar__item.is-active {
+  color: var(--pomodoro);
+  background: rgba(199, 52, 30, 0.08);
+}
+.tabbar__item.is-hot::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: calc(50% + 10px);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--pomodoro);
+  box-shadow: 0 0 0 2px var(--carta);
+}
+
+.livebar {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  top: calc(var(--safe-top) + 64px);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 10px 10px 10px 16px;
+  border-radius: 16px;
+  background: var(--forno);
+  color: #fff8ef;
+  font-weight: 650;
+  font-size: 15px;
+  box-shadow: var(--shadow-lift);
+  animation: toast-in 0.35s var(--ease-pop);
+}
+
+/* ——— Card generiche ——— */
+.card {
+  background: var(--carta);
+  border: 1px solid var(--line);
+  border-radius: var(--r-l);
+  padding: 18px;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 16px;
+}
+.card__title {
+  font-family: var(--font-display);
+  font-weight: 850;
+  font-size: 26px;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.card__text {
+  color: var(--forno-2);
+  font-size: 15.5px;
+  margin-bottom: 12px;
+}
+.card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+.card--warn {
+  background: #fbf3e2;
+  border-color: #ecd6a9;
+}
+.card--danger {
+  background: #fdf0ec;
+  border-color: #f0c3b6;
+}
+
+/* ——— Pagine di errore ——— */
+.errorpage {
+  min-height: 100dvh;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 14px;
+  text-align: center;
+  padding: 24px;
+}
+.errorpage .tile-band {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.errorpage__code {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 110px;
+  line-height: 0.8;
+  color: var(--cornicione);
+}
+.errorpage__title {
+  font-family: var(--font-display);
+  font-weight: 850;
+  font-size: 38px;
+  line-height: 1;
+}
+.errorpage__text {
+  max-width: 34ch;
+  color: var(--forno-2);
+}
+
+.crumbs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.crumbs__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+  color: var(--forno-2);
+  text-decoration: none;
+  padding: 8px 4px;
+  margin-left: -4px;
+}

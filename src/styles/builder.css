@@ -1,0 +1,304 @@
+/* ——— Crea la tua pizza ——— */
+.create__head {
+  margin-bottom: 4px;
+}
+.create__head .page-title {
+  margin-top: 4px;
+}
+
+.builder {
+  display: grid;
+  gap: 8px;
+}
+.builder__stage {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  padding: 18px 0 64px;
+  margin: 0 calc(var(--pad) * -1);
+  overflow: hidden;
+}
+.peel {
+  position: absolute;
+  top: 6px;
+  width: min(96vw, 390px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: repeating-linear-gradient(97deg, rgba(255, 255, 255, 0.05) 0 2px, transparent 2px 11px), radial-gradient(circle at 34% 28%, #cf9562, #a86c3d 55%, #87522c 100%);
+  box-shadow: inset 0 0 0 7px rgba(60, 30, 10, 0.08), 0 24px 40px -22px rgba(60, 30, 10, 0.75);
+}
+.peel::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -168px;
+  width: 50px;
+  height: 180px;
+  transform: translateX(-50%);
+  border-radius: 0 0 26px 26px;
+  background: linear-gradient(90deg, #87522c, #b67a49 45%, #87522c);
+  z-index: -1;
+}
+.builder__pizza {
+  position: relative;
+  width: min(84vw, 340px);
+  filter: drop-shadow(0 10px 12px rgba(50, 20, 4, 0.35));
+}
+.preview-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.pz-in {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: topping-drop 0.55s var(--ease-pop) both;
+}
+@keyframes topping-drop {
+  from {
+    opacity: 0;
+    transform: scale(1.16) translateY(-12px);
+  }
+}
+.tag {
+  position: absolute;
+  bottom: 14px;
+  display: grid;
+  justify-items: center;
+  min-width: 190px;
+  max-width: 86%;
+  padding: 10px 18px 9px;
+  background: var(--carta);
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  box-shadow: 0 10px 18px -12px rgba(40, 20, 6, 0.6);
+  transform: rotate(-2.5deg);
+  text-align: center;
+}
+.tag::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  background: var(--legno);
+  box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.3);
+}
+.tag__name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 28px;
+  line-height: 1;
+  overflow-wrap: anywhere;
+}
+.tag__by {
+  font-size: 13.5px;
+  font-weight: 650;
+  color: var(--forno-3);
+}
+
+.mini-preview {
+  position: fixed;
+  top: calc(var(--safe-top) + 66px);
+  right: 12px;
+  width: 96px;
+  z-index: 25;
+  border-radius: 50%;
+  filter: drop-shadow(0 10px 14px rgba(50, 20, 4, 0.4));
+  opacity: 0;
+  transform: scale(0.6) translateY(-20px);
+  transition: opacity 0.25s, transform 0.35s var(--ease-pop);
+  pointer-events: none;
+}
+.mini-preview.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.taginput {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-height: 56px;
+  padding: 8px;
+  border-radius: 14px;
+  border: 1.5px solid var(--line-strong);
+  background: var(--carta);
+  cursor: text;
+}
+.taginput:focus-within {
+  border-color: var(--pomodoro);
+  box-shadow: 0 0 0 4px rgba(199, 52, 30, 0.14);
+}
+.taginput__input {
+  flex: 1 1 140px;
+  min-width: 120px;
+  border: 0;
+  outline: none;
+  background: transparent;
+  font-size: 17px;
+  padding: 6px 6px;
+}
+.tag-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 4px 5px 11px;
+  border-radius: var(--r-pill);
+  background: var(--basilico-tenue);
+  color: var(--basilico-scuro);
+  font-weight: 750;
+  font-size: 15px;
+  animation: chip-in 0.3s var(--ease-pop);
+}
+@keyframes chip-in {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+}
+.tag-chip button {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(34, 81, 44, 0.12);
+  color: inherit;
+}
+.tag-chip--unknown {
+  background: #fbf0d9;
+  color: #6b4208;
+  outline: 1.5px dashed #d9b06c;
+  outline-offset: -1.5px;
+}
+.tag-chip__q {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #d9a15e;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 900;
+}
+.suggest {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-height: 8px;
+}
+.suggest__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 7px 12px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  font-weight: 700;
+  font-size: 14.5px;
+  color: var(--forno-2);
+}
+.suggest__item:active {
+  background: var(--basilico-tenue);
+}
+
+.pick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.pick__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 42px;
+  padding: 8px 14px;
+  border-radius: var(--r-pill);
+  border: 1.5px solid var(--line-strong);
+  background: var(--carta);
+  font-weight: 750;
+}
+.pick__item.is-on {
+  background: var(--forno);
+  border-color: var(--forno);
+  color: #fff8ef;
+}
+.pick__item:disabled {
+  opacity: 1;
+  cursor: default;
+}
+
+.doughs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+.dough-pick {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 58px;
+  padding: 10px 14px;
+  border-radius: 16px;
+  border: 1.5px solid var(--line-strong);
+  background: var(--carta);
+  font-weight: 800;
+  text-align: left;
+}
+.dough-pick__check {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  border: 2px solid var(--line-strong);
+  color: #fff;
+}
+.dough-pick.is-on.dough-pick--pomodoro {
+  border-color: var(--pomodoro);
+  background: #fdf1ec;
+}
+.dough-pick.is-on.dough-pick--pomodoro .dough-pick__check {
+  background: var(--pomodoro);
+  border-color: var(--pomodoro);
+}
+.dough-pick.is-on.dough-pick--basilico {
+  border-color: var(--basilico);
+  background: #f1f7ec;
+}
+.dough-pick.is-on.dough-pick--basilico .dough-pick__check {
+  background: var(--basilico);
+  border-color: var(--basilico);
+}
+.dough-pick.is-on .dough-pick__check {
+  background: var(--legno);
+  border-color: var(--legno);
+}
+
+.builder .savebar {
+  margin-top: 4px;
+}
+
+@media (min-width: 900px) {
+  .admin-builder .builder {
+    grid-template-columns: minmax(320px, 420px) 1fr;
+    align-items: start;
+    gap: 32px;
+  }
+  .admin-builder .builder__stage {
+    position: sticky;
+    top: 16px;
+    margin: 0;
+  }
+  .admin-builder .mini-preview {
+    display: none;
+  }
+}

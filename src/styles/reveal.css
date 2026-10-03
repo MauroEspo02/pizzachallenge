@@ -1,0 +1,300 @@
+/* ——— Il verdetto: spettacolo a schermo intero ——— */
+.reveal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  color: #fff3dc;
+  background: radial-gradient(120% 75% at 50% 115%, #9c3412 0%, #4a1a0b 38%, #1f1a16 72%);
+  display: grid;
+  overflow: hidden;
+  animation: reveal-in 0.6s ease both;
+}
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+  }
+}
+.reveal__glow {
+  position: absolute;
+  left: 50%;
+  bottom: -30vh;
+  width: 140vw;
+  height: 70vh;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 170, 70, 0.35), transparent);
+  animation: glow 3.2s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+@keyframes glow {
+  to {
+    opacity: 0.55;
+    transform: translateX(-50%) scale(1.06);
+  }
+}
+.reveal__bars {
+  position: absolute;
+  top: calc(var(--safe-top) + 12px);
+  left: 16px;
+  right: 64px;
+  display: flex;
+  gap: 4px;
+  z-index: 3;
+}
+.reveal__bars span {
+  flex: 1;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(255, 243, 220, 0.25);
+}
+.reveal__bars .is-done {
+  background: rgba(255, 243, 220, 0.9);
+}
+.reveal__bars .is-current {
+  background: linear-gradient(90deg, #fff3dc 50%, rgba(255, 243, 220, 0.25) 50%);
+  background-size: 200% 100%;
+  animation: bar-fill 1.2s ease forwards;
+}
+@keyframes bar-fill {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+.reveal__close {
+  position: absolute;
+  top: calc(var(--safe-top) + 2px);
+  right: 8px;
+  z-index: 4;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  background: transparent;
+  color: #fff3dc;
+  display: grid;
+  place-items: center;
+}
+.reveal__prev,
+.reveal__next {
+  position: absolute;
+  top: 60px;
+  bottom: 0;
+  z-index: 2;
+  border: 0;
+  background: transparent;
+  -webkit-tap-highlight-color: transparent;
+}
+.reveal__prev {
+  left: 0;
+  width: 30%;
+}
+.reveal__next {
+  right: 0;
+  width: 70%;
+}
+.reveal__stage {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  padding: calc(var(--safe-top) + 48px) 22px calc(var(--safe-bottom) + 28px);
+  pointer-events: none;
+}
+.reveal__stage .btn {
+  pointer-events: auto;
+}
+.scene {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  text-align: center;
+  width: min(100%, 520px);
+  animation: rise 0.6s var(--ease-out) both;
+}
+.scene__kicker {
+  font-weight: 800;
+  font-size: 17px;
+  color: var(--cornicione-chiaro);
+  letter-spacing: 0.01em;
+}
+.scene__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(44px, 13vw, 76px);
+  line-height: 0.9;
+  color: #fff8ef;
+  max-width: 12ch;
+}
+.scene__tap {
+  margin-top: 8px;
+  font-weight: 700;
+  opacity: 0.7;
+  animation: breathe 2s ease-in-out infinite;
+}
+.scene__by {
+  color: var(--cornicione-chiaro);
+  font-weight: 600;
+}
+.scene__score {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 84px;
+  line-height: 0.9;
+  color: var(--cornicione);
+  text-shadow: 0 0 30px rgba(255, 160, 60, 0.45);
+}
+.scene__note {
+  font-size: 14px;
+  opacity: 0.75;
+  max-width: 36ch;
+}
+.scene__versions {
+  display: grid;
+  gap: 4px;
+  min-width: 220px;
+  color: var(--cornicione-chiaro);
+}
+.scene__winner {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+}
+.scene__pizza {
+  width: min(60vw, 240px);
+  height: auto;
+  filter: drop-shadow(0 24px 30px rgba(0, 0, 0, 0.6));
+}
+.scene__pizza--out {
+  animation: out-of-oven 1s var(--ease-out) 0.15s both;
+}
+.scene__place {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 44px;
+  line-height: 1;
+  color: var(--cornicione-chiaro);
+}
+.scene--first .scene__place {
+  font-size: 64px;
+  color: var(--cornicione);
+  text-shadow: 0 0 40px rgba(255, 170, 70, 0.6);
+}
+.scene--intro .scene__title {
+  animation: rise 1s var(--ease-out) 0.3s both;
+}
+.oven {
+  position: relative;
+  width: 200px;
+  height: 130px;
+  border-radius: 100px 100px 16px 16px;
+  background: #140f0c;
+  box-shadow: inset 0 0 0 8px #2e231c, 0 0 80px rgba(255, 120, 40, 0.35);
+  overflow: hidden;
+}
+.oven__fire {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 160px;
+  height: 110px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 210, 110, 1), rgba(240, 100, 30, 0.85) 45%, transparent 75%);
+  animation: flicker 1.8s ease-in-out infinite alternate;
+}
+.duel__side {
+  color: var(--forno);
+}
+.reveal .duel {
+  width: 100%;
+}
+.reveal .duel__side {
+  background: rgba(255, 243, 220, 0.06);
+  border-color: rgba(242, 215, 166, 0.3);
+  color: #fff3dc;
+}
+.reveal .duel__side--pomodoro .duel__score {
+  color: #ff8a6a;
+}
+.reveal .duel__side--basilico .duel__score {
+  color: #8fd19a;
+}
+.reveal .duel__meta {
+  color: var(--cornicione-chiaro);
+}
+.awards {
+  display: grid;
+  gap: 10px;
+  width: 100%;
+}
+.award {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 12px;
+  align-items: center;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 16px;
+  background: rgba(255, 243, 220, 0.06);
+  border: 1px solid rgba(242, 215, 166, 0.22);
+  animation: rise 0.55s var(--ease-out) both;
+}
+.award > div {
+  display: grid;
+}
+.award__label {
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--cornicione);
+}
+.award__tie {
+  color: var(--cornicione-chiaro);
+  font-weight: 650;
+}
+.award__who {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  margin: 2px 0;
+}
+.award__name {
+  font-family: var(--font-display);
+  font-weight: 850;
+  font-size: 24px;
+  line-height: 1.05;
+  color: #fff8ef;
+}
+.award .dough {
+  font-size: 12.5px;
+  padding: 2px 9px 2px 7px;
+}
+.award__more {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cornicione-chiaro);
+}
+/* Posto condiviso: più pizze nella stessa scena, quindi più piccole. */
+.scene__winner--shared .scene__pizza {
+  width: min(34vw, 140px);
+}
+.scene__winner--shared .scene__title {
+  font-size: clamp(30px, 8.5vw, 46px);
+}
+.scene__winner--shared .scene__score {
+  font-size: 52px;
+}
+.award__value {
+  font-size: 13px;
+  opacity: 0.75;
+}
+.confetti {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}

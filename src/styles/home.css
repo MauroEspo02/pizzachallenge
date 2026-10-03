@@ -1,0 +1,291 @@
+/* ——— Home ——— */
+.hello {
+  margin-bottom: 18px;
+}
+.hello__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 0.92;
+}
+.hello__line {
+  margin-top: 6px;
+  color: var(--forno-2);
+  font-weight: 550;
+}
+
+.verdict-cta {
+  display: grid;
+  gap: 4px;
+  padding: 20px 22px;
+  margin-bottom: 18px;
+  border-radius: var(--r-l);
+  text-decoration: none;
+  color: var(--cornicione-chiaro);
+  background: radial-gradient(130% 120% at 85% 120%, rgba(226, 98, 30, 0.85), transparent 55%), var(--forno);
+  box-shadow: var(--shadow-lift);
+}
+.verdict-cta__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 0.95;
+  color: #fff3dc;
+}
+.verdict-cta__go {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 750;
+}
+
+/* "In tavola ora": la bocca del forno. */
+.serving {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-bottom: 18px;
+  padding: 0 18px 18px;
+  border-radius: var(--r-xl);
+  color: #fff3dc;
+  background: radial-gradient(90% 70% at 50% 34%, rgba(226, 110, 40, 0.55), transparent 70%), var(--forno);
+  overflow: hidden;
+  box-shadow: var(--shadow-lift);
+}
+.serving__art {
+  display: grid;
+  place-items: center;
+  margin: -18px -40px -26px;
+}
+.serving__art .pizza-img {
+  filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.55));
+  animation: out-of-oven 0.9s var(--ease-out) both;
+}
+@keyframes out-of-oven {
+  from {
+    transform: translateY(-36px) scale(0.86) rotate(-14deg);
+    opacity: 0;
+  }
+}
+.serving__body {
+  position: relative;
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+}
+.serving__kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  color: var(--cornicione-chiaro);
+}
+.pulse {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff7b3a;
+  box-shadow: 0 0 0 0 rgba(255, 123, 58, 0.6);
+  animation: pulse 1.6s infinite;
+}
+@keyframes pulse {
+  70% {
+    box-shadow: 0 0 0 12px rgba(255, 123, 58, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 123, 58, 0);
+  }
+}
+.serving .ticket {
+  background: #2c241e;
+  color: var(--cornicione-chiaro);
+  border-color: rgba(242, 215, 166, 0.5);
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.serving__name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 42px;
+  line-height: 0.92;
+  color: #fff8ef;
+  max-width: 13ch;
+}
+.serving .dough {
+  color: var(--cornicione-chiaro);
+}
+.serving__cta {
+  margin-top: 6px;
+}
+.serving .btn--secondary {
+  --btn-bg: transparent;
+  --btn-fg: #fff3dc;
+  --btn-border: rgba(242, 215, 166, 0.5);
+}
+
+/* Progresso */
+.progress {
+  display: grid;
+  gap: 10px;
+  padding: 16px 18px;
+  margin-bottom: 22px;
+  border-radius: var(--r-l);
+  background: var(--carta);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-card);
+}
+.progress__head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.progress__count {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--forno-3);
+  white-space: nowrap;
+}
+.progress__count strong {
+  font-size: 40px;
+  color: var(--basilico);
+}
+.progress__label {
+  font-weight: 650;
+  color: var(--forno-2);
+  line-height: 1.25;
+}
+.progress__next {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  text-decoration: none;
+  font-size: 15px;
+  color: var(--pomodoro-scuro);
+}
+
+/* Crea */
+.create-cta {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 12px 16px;
+  padding: 18px;
+  margin-bottom: 22px;
+  border-radius: var(--r-l);
+  background: linear-gradient(160deg, #8a5532, #6d3f22);
+  color: #fff3dc;
+  box-shadow: var(--shadow-lift);
+}
+.create-cta__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 1;
+}
+.create-cta__text {
+  font-size: 15px;
+  opacity: 0.9;
+  margin-top: 4px;
+}
+.mine {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 6px;
+}
+.mine a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px 6px 6px;
+  border-radius: 12px;
+  background: rgba(255, 243, 220, 0.12);
+  text-decoration: none;
+  font-weight: 700;
+}
+.mine a span {
+  flex: 1;
+}
+
+/* Elenco pizze */
+.menu {
+  margin-top: 6px;
+}
+.plist {
+  display: grid;
+  gap: 10px;
+}
+.prow {
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px 10px 10px;
+  border-radius: var(--r-l);
+  background: var(--carta);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-card);
+  text-decoration: none;
+  transition: transform 0.12s;
+}
+.prow:active {
+  transform: scale(0.985);
+}
+.prow.is-voted {
+  background: color-mix(in srgb, var(--carta) 80%, var(--basilico-tenue));
+}
+.prow.is-locked {
+  opacity: 0.7;
+}
+.prow .pizza-img {
+  filter: drop-shadow(0 6px 8px rgba(70, 30, 8, 0.25));
+}
+.prow__body {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+.prow__name {
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1.15;
+}
+.prow__by {
+  font-size: 14px;
+  color: var(--forno-3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.prow__status {
+  justify-self: end;
+  color: var(--forno-3);
+}
+.prow__todo {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: var(--r-pill);
+  border: 1.5px solid var(--pomodoro);
+  color: var(--pomodoro);
+  font-weight: 800;
+  font-size: 13.5px;
+  white-space: nowrap;
+}
+.prow__wait {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13.5px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+@media (max-width: 380px) {
+  .prow {
+    grid-template-columns: auto 1fr auto;
+  }
+  .prow .ticket {
+    display: none;
+  }
+}

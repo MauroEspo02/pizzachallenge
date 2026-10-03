@@ -1,0 +1,519 @@
+/* ——— Risultati bloccati: il forno chiuso ——— */
+.vault {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 10px;
+  padding: 26px 8px 10px;
+}
+.vault__oven {
+  position: relative;
+  width: 240px;
+  height: 170px;
+  margin-bottom: 18px;
+  border-radius: 120px 120px 22px 22px;
+  background: #2a211b;
+  box-shadow: inset 0 0 0 10px #3a2d24, inset 0 0 0 12px #5a4232, 0 26px 40px -24px rgba(40, 18, 4, 0.8);
+  overflow: hidden;
+}
+.vault__oven::before {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 26px;
+  background: repeating-linear-gradient(90deg, #6d4a33 0 30px, #5c3d29 30px 31px);
+  border-top: 2px solid #3a2a20;
+}
+.vault__fire {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  width: 160px;
+  height: 110px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 196, 80, 0.95), rgba(240, 100, 30, 0.75) 45%, transparent 75%);
+  filter: blur(2px);
+  animation: flicker 2.4s ease-in-out infinite alternate;
+}
+@keyframes flicker {
+  0% {
+    transform: translateX(-50%) scale(0.92, 0.88);
+    opacity: 0.85;
+  }
+  40% {
+    transform: translateX(-52%) scale(1.04, 1.06);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-48%) scale(0.96, 1.02);
+    opacity: 0.9;
+  }
+}
+.vault__lock {
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  display: grid;
+  place-items: center;
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  border: 3px solid #f2d7a6;
+  color: #f2d7a6;
+  background: rgba(31, 26, 22, 0.55);
+}
+.vault__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 0.95;
+  max-width: 13ch;
+}
+.vault__text {
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--forno-2);
+}
+.vault__me {
+  margin-top: 10px;
+  padding: 8px 14px;
+  border-radius: var(--r-pill);
+  background: var(--carta);
+  border: 1px solid var(--line);
+  font-weight: 650;
+  font-size: 15px;
+}
+
+/* ——— Risultati ——— */
+.results__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.replay {
+  min-height: 40px;
+  padding: 6px 12px;
+  font-size: 15px;
+}
+.podium-hero {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 8px;
+  padding: 18px 16px 22px;
+  margin-bottom: 16px;
+  border-radius: var(--r-xl);
+  color: #fff3dc;
+  background: radial-gradient(90% 60% at 50% 35%, rgba(226, 110, 40, 0.5), transparent 70%), var(--forno);
+  box-shadow: var(--shadow-lift);
+}
+.podium-hero .eyebrow {
+  color: var(--cornicione-chiaro);
+  font-size: 17px;
+}
+.podium-hero__item {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+}
+.podium-hero__item .pizza-img {
+  filter: drop-shadow(0 20px 26px rgba(0, 0, 0, 0.55));
+}
+.podium-hero__name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 46px;
+  line-height: 0.92;
+  color: #fff8ef;
+}
+.podium-hero__by {
+  color: var(--cornicione-chiaro);
+  font-weight: 600;
+}
+/* Il panetto su fondo scuro: una pillola chiara. */
+.podium-hero .dough,
+.reveal .dough {
+  padding: 5px 12px 5px 10px;
+  border-radius: 999px;
+  background: rgba(255, 243, 220, 0.1);
+  border: 1px solid rgba(242, 215, 166, 0.25);
+  color: #fff3dc;
+}
+.podium-hero .dough--pomodoro .dough__dot,
+.reveal .dough--pomodoro .dough__dot {
+  background: #ff8a6a;
+}
+.podium-hero .dough--basilico .dough__dot,
+.reveal .dough--basilico .dough__dot {
+  background: #8fd19a;
+}
+.podium-hero .bigscore {
+  justify-items: center;
+}
+.podium-hero .bigscore__value {
+  color: var(--cornicione);
+}
+.podium-hero .bigscore__label,
+.podium-hero .bigscore__max {
+  color: rgba(242, 215, 166, 0.75);
+}
+.podium-hero__tie {
+  font-weight: 700;
+}
+
+.result-card .card__title {
+  margin-bottom: 4px;
+}
+.best-recipe {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+.best-recipe img {
+  width: 88px;
+  height: 88px;
+}
+.best-recipe__name {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 28px;
+  line-height: 1;
+}
+.best-recipe__by {
+  display: block;
+  color: var(--forno-3);
+  font-size: 14px;
+  margin: 2px 0 6px;
+}
+.best-recipe__versions li,
+.scene__versions li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 14px;
+}
+.best-recipe__score {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 40px;
+  color: var(--pomodoro);
+}
+
+.duel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+  margin: 8px 0 14px;
+}
+.duel__side {
+  display: grid;
+  gap: 2px;
+  padding: 14px;
+  border-radius: var(--r-m);
+  background: var(--farina);
+  border: 1.5px solid var(--line);
+  animation: rise 0.6s var(--ease-out) both;
+}
+.duel__side--pomodoro {
+  border-color: rgba(199, 52, 30, 0.45);
+}
+.duel__side--basilico {
+  border-color: rgba(47, 107, 59, 0.45);
+}
+.duel__name {
+  font-weight: 800;
+  line-height: 1.15;
+}
+.duel__score {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 1;
+}
+.duel__side--pomodoro .duel__score {
+  color: var(--pomodoro);
+}
+.duel__side--basilico .duel__score {
+  color: var(--basilico);
+}
+.duel__meta {
+  font-size: 13.5px;
+  color: var(--forno-3);
+  font-weight: 650;
+}
+.dough-bars {
+  display: grid;
+  gap: 8px;
+}
+.dough-bars__row {
+  display: grid;
+  grid-template-columns: 96px repeat(2, 1fr);
+  gap: 8px;
+  align-items: center;
+}
+.dough-bars__row dt {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--forno-2);
+}
+.dough-bars__val {
+  position: relative;
+  height: 24px;
+  border-radius: 7px;
+  background: var(--farina);
+  overflow: hidden;
+}
+.dough-bars__fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--legno);
+  opacity: 0.85;
+  animation: grow 0.9s var(--ease-out) both;
+  transform-origin: left;
+}
+.dough-bars__val--pomodoro .dough-bars__fill {
+  background: var(--pomodoro);
+}
+.dough-bars__val--basilico .dough-bars__fill {
+  background: var(--basilico);
+}
+.dough-bars__num {
+  position: relative;
+  display: block;
+  padding: 0 8px;
+  line-height: 24px;
+  font-weight: 800;
+  font-size: 14px;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+.h2h {
+  margin-top: 14px;
+  display: grid;
+  gap: 4px;
+  font-size: 14.5px;
+}
+.h2h li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 6px 0;
+  border-top: 1px solid var(--line);
+}
+.h2h__winner {
+  font-weight: 750;
+  color: var(--forno-2);
+}
+
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 26px;
+}
+.award-card {
+  display: grid;
+  gap: 2px;
+  padding: 14px;
+  border-radius: var(--r-m);
+  background: var(--carta);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-card);
+}
+.award-card__label {
+  font-size: 13.5px;
+  font-weight: 750;
+  color: var(--pomodoro);
+}
+.award-card__tie {
+  color: var(--forno-3);
+  font-weight: 650;
+}
+.award-card__who {
+  display: grid;
+  gap: 4px;
+  margin: 2px 0;
+}
+.award-card__who li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 10px;
+}
+.award-card__name {
+  font-family: var(--font-display);
+  font-weight: 850;
+  font-size: 22px;
+  line-height: 1.05;
+}
+.award-card__who .dough {
+  font-size: 13px;
+}
+.award-card__more {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--forno-3);
+}
+.award-card__value {
+  font-size: 13.5px;
+  color: var(--forno-3);
+  font-weight: 650;
+}
+
+.ranking-section {
+  margin-bottom: 22px;
+  scroll-margin-top: 80px;
+}
+.ranking {
+  display: grid;
+  gap: 10px;
+}
+.rank {
+  display: grid;
+  gap: 10px;
+  padding: 12px 14px 14px;
+  border-radius: var(--r-l);
+  background: var(--carta);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-card);
+}
+.rank--first {
+  border-color: rgba(217, 161, 94, 0.9);
+  background: linear-gradient(160deg, #fff6e2, var(--carta) 60%);
+}
+/* Riga di testa: posizione · pizza · nome e panetto · punteggio. */
+.rank__head {
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+}
+.rank__pos {
+  min-width: 34px;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 1;
+  color: var(--forno-2);
+}
+.rank--first .rank__pos {
+  color: var(--cornicione);
+}
+.rank .pizza-img {
+  width: 56px;
+}
+.rank__title {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+.rank__name {
+  font-weight: 850;
+  font-size: 18px;
+  line-height: 1.15;
+  text-decoration: none;
+}
+.rank__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 12px;
+  font-size: 13.5px;
+  color: var(--forno-3);
+}
+.rank__meta .dough {
+  font-size: 13.5px;
+}
+.rank__tie {
+  justify-self: start;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(123, 74, 42, 0.09);
+  font-size: 12.5px;
+  font-weight: 750;
+  color: var(--legno);
+}
+.rank__score {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 1;
+  color: var(--pomodoro);
+}
+@media (max-width: 380px) {
+  .rank__head {
+    gap: 8px;
+  }
+  .rank__pos {
+    min-width: 28px;
+    font-size: 28px;
+  }
+  .rank .pizza-img {
+    width: 48px;
+  }
+  .rank__name {
+    font-size: 17px;
+  }
+  .rank__score {
+    font-size: 26px;
+  }
+}
+
+.chefs {
+  display: grid;
+  gap: 2px;
+}
+.chefs li {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  align-items: center;
+  padding: 8px 0;
+  border-top: 1px solid var(--line);
+}
+.chefs__pos {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 22px;
+  color: var(--forno-3);
+}
+.chefs__name {
+  font-weight: 800;
+}
+.chefs__score {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 24px;
+  color: var(--pomodoro);
+}
+
+.howto {
+  margin: 8px 0 20px;
+  padding: 14px 16px;
+  border-radius: var(--r-m);
+  border: 1px dashed var(--line-strong);
+  font-size: 15px;
+}
+.howto summary {
+  font-weight: 800;
+  cursor: pointer;
+}
+.howto ul {
+  margin-top: 10px;
+  display: grid;
+  gap: 6px;
+  list-style: disc;
+  padding-left: 18px;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}

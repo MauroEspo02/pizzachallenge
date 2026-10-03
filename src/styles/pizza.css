@@ -1,0 +1,247 @@
+/* ——— Pagina pizza ——— */
+.pizza-hero {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+.pizza-hero__art .pizza-img {
+  filter: drop-shadow(0 24px 30px rgba(70, 30, 8, 0.3));
+}
+.enter {
+  animation: pizza-enter 0.8s var(--ease-out) both;
+}
+@keyframes pizza-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) rotate(-22deg) scale(0.9);
+  }
+}
+.pizza-hero__name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 46px;
+  line-height: 0.92;
+  max-width: 14ch;
+  margin-top: 4px;
+}
+.pizza-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 6px 14px;
+}
+.pizza-hero__by {
+  color: var(--forno-2);
+  font-weight: 600;
+}
+.pizza-hero__desc {
+  font-style: italic;
+  color: var(--forno-2);
+  max-width: 36ch;
+}
+.pizza-hero .chips {
+  justify-content: center;
+  margin-top: 4px;
+}
+
+/* ——— Voto ——— */
+.vote__head {
+  margin-bottom: 12px;
+}
+.vote__head .section-title {
+  margin-bottom: 4px;
+}
+.vote__locked {
+  font-weight: 650;
+  color: var(--legno);
+}
+.crit {
+  padding: 16px 16px 14px;
+  margin-bottom: 12px;
+  border-radius: var(--r-l);
+  background: var(--carta);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-card);
+}
+.crit__title {
+  font-weight: 850;
+  font-size: 20px;
+  line-height: 1.2;
+}
+.crit__question {
+  font-size: 15px;
+  color: var(--forno-3);
+  margin: 2px 0 12px;
+}
+.crit__scale {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+.token {
+  aspect-ratio: 1;
+  max-height: 64px;
+  width: 100%;
+  border-radius: 50%;
+  border: 2px solid var(--legno-tenue);
+  background: #fffdf8;
+  font-family: var(--font-display);
+  font-weight: 850;
+  font-size: 27px;
+  color: var(--forno-2);
+  display: grid;
+  place-items: center;
+  touch-action: manipulation;
+  transition: background 0.18s, border-color 0.18s, color 0.18s, transform 0.18s;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.token.is-below {
+  background: var(--pomodoro-tenue);
+  border-color: #efc2b5;
+  color: var(--pomodoro-scuro);
+}
+.token.is-active {
+  background: var(--pomodoro);
+  border-color: var(--pomodoro);
+  color: #fff8ef;
+  box-shadow: 0 8px 16px -8px rgba(159, 38, 20, 0.9);
+}
+.token.is-popped {
+  animation: token-pop 0.38s var(--ease-pop);
+}
+@keyframes token-pop {
+  0% {
+    transform: scale(0.82);
+  }
+  60% {
+    transform: scale(1.14);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.token:disabled {
+  cursor: default;
+}
+.vote--readonly .token:not(.is-active):not(.is-below) {
+  opacity: 0.5;
+}
+.token--small {
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+}
+.crit__level {
+  margin-top: 10px;
+  min-height: 1.45em;
+  font-size: 16px;
+  color: var(--forno-3);
+  font-weight: 550;
+}
+.crit__level.is-set {
+  color: var(--pomodoro-scuro);
+  font-weight: 750;
+  font-style: italic;
+}
+.crit__note {
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(217, 161, 94, 0.16);
+  color: var(--legno);
+  font-size: 14px;
+}
+
+.savebar {
+  position: sticky;
+  bottom: 0;
+  z-index: 20;
+  margin: 18px calc(var(--pad) * -1) 0;
+  padding: 26px var(--pad) calc(var(--safe-bottom) + 12px);
+  background: linear-gradient(to bottom, transparent, var(--farina) 28px);
+  display: grid;
+  gap: 8px;
+}
+.savebar__hint {
+  text-align: center;
+  font-size: 14px;
+  color: var(--forno-3);
+  font-weight: 600;
+}
+
+/* ——— Risultato sulla pagina pizza ——— */
+.pizza-result {
+  padding: 20px;
+  margin-bottom: 16px;
+  border-radius: var(--r-l);
+  background: var(--carta);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-card);
+  display: grid;
+  gap: 18px;
+}
+.pizza-result__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+}
+.pizza-result__pos {
+  display: grid;
+  justify-items: end;
+  text-align: right;
+  font-weight: 650;
+  color: var(--forno-2);
+}
+.pizza-result__pos strong {
+  font-family: var(--font-display);
+  font-size: 46px;
+  line-height: 0.9;
+  color: var(--forno);
+}
+.pizza-result__pos small {
+  color: var(--forno-3);
+  font-size: 13.5px;
+}
+.twin {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  text-decoration: none;
+  font-size: 15px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--farina);
+}
+.myvote {
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  border-radius: var(--r-m);
+  border: 1px dashed var(--line-strong);
+}
+.myvote summary {
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.pager {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.pager__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--carta);
+  border: 1px solid var(--line);
+  text-decoration: none;
+  font-weight: 750;
+}
